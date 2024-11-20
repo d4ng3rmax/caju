@@ -1,6 +1,8 @@
 /** @type {import('jest').Config} */
 export default {
-  verbose: true,
+  verbose: false,
+  silent: true,
+  errorOnDeprecated: false,
   preset: "ts-jest",
   testEnvironment: "jsdom",
   transform: {
@@ -9,6 +11,8 @@ export default {
   },
   moduleNameMapper: {
     "^~/(.+)": "<rootDir>/src/$1",
+    "\\.(css|scss|sass)$": "identity-obj-proxy",
   },
-//   setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  testPathIgnorePatterns: ["/node_modules/", "/dist/"],
 };

@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 module.exports = {
   extends: [
     'eslint:recommended',
@@ -15,6 +17,10 @@ module.exports = {
     'import/resolver': {
       node: {
         paths: ['src'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+      alias: {
+        map: [['~', './src']],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
